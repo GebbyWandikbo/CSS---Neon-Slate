@@ -1,0 +1,1162 @@
+!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Slate — Design System Showcase</title>
+<link rel="shortcut icon" href="./assets/neon-slate-logo.svg" type="image/x-icon">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- === NEON SLATE CSS === -->
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/utilities.css">
+
+</head>
+<body>
+
+<!-- ===== PROGRESS ===== -->
+<div class="progress-track"><div class="progress-fill" id="progress"></div></div>
+
+<!-- ===== TOPBAR ===== -->
+<div class="topbar">
+  <div class="topbar__inner">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      Neon Slate <span class="muted" style="font-weight:500">· Design System</span>
+    </div>
+    <div style="flex:1"></div>
+    <button class="icon-btn" id="themeToggle" aria-label="Ganti tema">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+      </svg>
+      <span id="themeLabel">Terang</span>
+    </button>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero__eyebrow">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+    Design System · v1.0
+  </div>
+  <h1>
+    Neon Slate<br>CSS Template
+  </h1>
+  <p class="lede">
+    Showcase lengkap seluruh komponen, token, dan utility yang tersedia di template.
+    Setiap elemen di bawah adalah <strong>demo hidup</strong> — coba hover, klik, dan ganti tema.
+  </p>
+
+  <!-- Theme preview switch -->
+  <div class="preview-toggle" role="group" aria-label="Preview tema">
+    <button data-preview="dark" class="active">🌙 Dark</button>
+    <button data-preview="light">☀️ Light</button>
+  </div>
+
+  <div class="stat-grid" style="margin-top:34px;">
+    <div class="stat"><span class="stat__k">Primary</span><span class="stat__v">#38bdf8</span></div>
+    <div class="stat"><span class="stat__k">Success</span><span class="stat__v">#34d399</span></div>
+    <div class="stat"><span class="stat__k">Warn</span><span class="stat__v" style="color:var(--warn)">#fbbf24</span></div>
+    <div class="stat"><span class="stat__k">Danger</span><span class="stat__v" style="color:var(--danger)">#fb7185</span></div>
+  </div>
+</header>
+
+<!-- ===== LAYOUT ===== -->
+<div class="layoutToc">
+
+  <!-- ===== SIDEBAR TOC ===== -->
+  <aside class="toc" id="toc">
+    <p class="toc-title">Daftar Isi</p>
+    <ol class="toc-list">
+      <li><a href="#warna">Warna Semantik</a></li>
+      <li><a href="#tipografi">Tipografi</a></li>
+      <li><a href="#tombol">Tombol &amp; Aksi</a></li>
+      <li><a href="#badge">Badge &amp; Label</a></li>
+      <li><a href="#kartu">Kartu &amp; Callout</a></li>
+      <li><a href="#code">Code Block</a></li>
+      <li><a href="#tabel">Tabel</a></li>
+      <li><a href="#form">Form Input</a></li>
+      <li><a href="#accordion">Accordion</a></li>
+      <li><a href="#tabs">Tabs</a></li>
+      <li><a href="#stepper">Stepper</a></li>
+      <li><a href="#flow">Flow &amp; Stat</a></li>
+      <li><a href="#modal">Modal</a></li>
+      <li><a href="#toast">Toast</a></li>
+      <li><a href="#tooltip">Tooltip</a></li>
+      <li><a href="#tips">Tips Konsistensi</a></li>
+    </ol>
+  </aside>
+
+  <!-- ===== CONTENT ===== -->
+  <main class="content">
+
+    <!-- ====================================================
+         1. WARNA SEMANTIK
+         ==================================================== -->
+    <section id="warna" class="section reveal">
+      <div class="sec-head">
+        <div class="sec-num">01</div>
+        <div>
+          <h2>Cheat Sheet: Warna Semantik</h2>
+          <span class="sec-head__sub">Setiap warna punya peran. Pakai token, jangan hardcode.</span>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="swatch">
+          <div class="swatch__chip" style="background:var(--accent);"></div>
+          <span class="swatch__name">Accent / Primary</span>
+          <code class="swatch__token">--accent</code>
+          <code class="swatch__value" id="sw-accent">#38bdf8</code>
+        </div>
+
+        <div class="swatch">
+          <div class="swatch__chip" style="background:var(--accent-2);"></div>
+          <span class="swatch__name">Success</span>
+          <code class="swatch__token">--accent-2</code>
+          <code class="swatch__value" id="sw-accent-2">#34d399</code>
+        </div>
+
+        <div class="swatch">
+          <div class="swatch__chip" style="background:var(--warn);"></div>
+          <span class="swatch__name">Warning</span>
+          <code class="swatch__token">--warn</code>
+          <code class="swatch__value" id="sw-warn">#fbbf24</code>
+        </div>
+
+        <div class="swatch">
+          <div class="swatch__chip" style="background:var(--danger);"></div>
+          <span class="swatch__name">Danger / Error</span>
+          <code class="swatch__token">--danger</code>
+          <code class="swatch__value" id="sw-danger">#fb7185</code>
+        </div>
+
+        <div class="swatch">
+          <div class="swatch__chip" style="background:var(--purple);"></div>
+          <span class="swatch__name">Purple / Info</span>
+          <code class="swatch__token">--purple</code>
+          <code class="swatch__value" id="sw-purple">#a78bfa</code>
+        </div>
+
+        <div class="swatch">
+          <div class="swatch__chip" style="background:var(--muted);"></div>
+          <span class="swatch__name">Muted / Disabled</span>
+          <code class="swatch__token">--muted</code>
+          <code class="swatch__value" id="sw-muted">#7d8fa8</code>
+        </div>
+
+        <div class="swatch">
+          <div class="swatch__chip" style="background:var(--surface);border:2px solid var(--border);"></div>
+          <span class="swatch__name">Surface</span>
+          <code class="swatch__token">--surface</code>
+          <code class="swatch__value" id="sw-surface">#0f1520</code>
+        </div>
+
+        <div class="swatch">
+          <div class="swatch__chip" style="background:var(--bg);border:2px solid var(--border);"></div>
+          <span class="swatch__name">Background</span>
+          <code class="swatch__token">--bg</code>
+          <code class="swatch__value" id="sw-bg">#080b12</code>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:22px;">
+        <div class="callout__title">💡 Prinsip Warna</div>
+        <p>Satu warna = satu makna. Jangan pakai <code class="mono">--danger</code> untuk dekorasi. Jangan pakai <code class="mono">--accent</code> untuk status sukses. Konsistensi makna &gt; keindahan visual.</p>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         2. TIPOGRAFI
+         ==================================================== -->
+    <section id="tipografi" class="section reveal">
+      <div class="sec-head">
+        <div class="sec-num">02</div>
+        <div>
+          <h2>Tipografi</h2>
+          <span class="sec-head__sub">Inter untuk UI · JetBrains Mono untuk data teknis</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="type-row"><span class="label">--fs-2xl · clamp(2rem, 5.2vw, 3.4rem)</span><span style="font-size:var(--fs-2xl);font-weight:800;letter-spacing:-.035em;line-height:1;">Hero</span></div>
+        <div class="type-row"><span class="label">--fs-xl · 1.8rem</span><span style="font-size:var(--fs-xl);font-weight:700;letter-spacing:-.025em;">Section heading</span></div>
+        <div class="type-row"><span class="label">--fs-lg · 1.35rem</span><span style="font-size:var(--fs-lg);font-weight:700;letter-spacing:-.02em;">Subheading</span></div>
+        <div class="type-row"><span class="label">--fs-md · 1.06rem</span><span style="font-size:var(--fs-md);font-weight:600;">Body besar</span></div>
+        <div class="type-row"><span class="label">--fs-base · 0.93rem</span><span style="font-size:var(--fs-base);color:var(--text-2);">Body utama — teks paragraf panjang yang nyaman dibaca.</span></div>
+        <div class="type-row"><span class="label">--fs-sm · 0.82rem</span><span style="font-size:var(--fs-sm);color:var(--text-2);">Caption, label form</span></div>
+        <div class="type-row"><span class="label">--fs-xs · 0.72rem</span><span style="font-size:var(--fs-xs);font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);">Eyebrow · Label</span></div>
+        <div class="type-row"><span class="label">--font-mono · JetBrains</span><span class="mono" style="font-size:1rem;color:var(--accent-2);">170.64.222.139</span></div>
+      </div>
+
+      <div class="callout callout--warn">
+        <div class="callout__title">📐 Aturan Tipografi</div>
+        <p>Angka, IP, kode, dan nilai teknis <strong>selalu</strong> pakai <code class="mono">var(--font-mono)</code>. UI text pakai <code class="mono">var(--font-sans)</code>. Jangan campur.</p>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         3. TOMBOL
+         ==================================================== -->
+    <section id="tombol" class="section reveal">
+      <div class="sec-head">
+        <div class="sec-num">03</div>
+        <div>
+          <h2>Tombol &amp; Aksi</h2>
+          <span class="sec-head__sub">Varian, ukuran, dan state</span>
+        </div>
+      </div>
+
+      <div class="demo">
+        <p class="muted text-xs uppercase mb-4">Varian</p>
+        <div class="flex gap-3">
+          <button class="btn btn--primary">Simpan Perubahan</button>
+          <button class="btn">Sekunder</button>
+          <button class="btn btn--ghost">Ghost</button>
+          <button class="btn" disabled>Disabled</button>
+        </div>
+      </div>
+
+      <div class="demo">
+        <p class="text-xs uppercase">Icon buttons</p>
+        <div class="flex gap-3">
+          <button class="icon-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+            Simpan
+          </button>
+          <button class="icon-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+            Opsi
+          </button>
+          <button class="icon-btn">★ Favorit</button>
+        </div>
+      </div>
+
+      <div class="callout callout--success">
+        <div class="callout__title">✓ Aturan Tombol</div>
+        <p>Satu halaman hanya boleh punya <strong>satu</strong> <code class="mono">.btn--primary</code> sebagai aksi utama. Sisanya sekunder atau ghost.</p>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         4. BADGE
+         ==================================================== -->
+    <section id="badge" class="section reveal">
+      <div class="sec-head">
+        <div class="sec-num">04</div>
+        <div>
+          <h2>Badge &amp; Label</h2>
+          <span class="sec-head__sub">Status, kategori, tag</span>
+        </div>
+      </div>
+
+      <div class="demo flex gap-3">
+        <span class="badge">Default</span>
+        <span class="badge badge--accent">● Aktif</span>
+        <span class="badge badge--success">✓ Sukses</span>
+        <span class="badge badge--warn">⚠ Peringatan</span>
+        <span class="badge badge--danger">✕ Error</span>
+        <span class="badge badge--purple">◆ Info</span>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         5. KARTU & CALLOUT
+         ==================================================== -->
+    <section id="kartu" class="section reveal">
+      <div class="sec-head">
+        <div class="sec-num">05</div>
+        <div>
+          <h2>Kartu &amp; Callout</h2>
+          <span class="sec-head__sub">Surface, hover, dan alert semantik</span>
+        </div>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <h3 style="margin:0 0 8px;font-size:1.06rem;font-weight:700;letter-spacing:-.015em;">Kartu Dasar</h3>
+          <p style="margin:0;color:var(--text-2);font-size:.93rem;">Surface dengan border tipis. Hover memunculkan border accent.</p>
+        </div>
+        <div class="card card--interactive">
+          <h3 style="margin:0 0 8px;font-size:1.06rem;font-weight:700;letter-spacing:-.015em;">Kartu Interaktif →</h3>
+          <p style="margin:0;color:var(--text-2);font-size:.93rem;">Angkat + shadow saat hover. Untuk elemen yang bisa diklik.</p>
+        </div>
+      </div>
+
+      <div class="callout callout--success">
+        <div class="callout__title">✓ Sukses</div>
+        <p>Operasi berhasil diselesaikan.</p>
+      </div>
+      <div class="callout">
+        <div class="callout__title">ℹ Info</div>
+        <p>Informasi netral untuk konteks tambahan.</p>
+      </div>
+      <div class="callout callout--warn">
+        <div class="callout__title">⚠ Perhatian</div>
+        <p>Tindakan ini memerlukan konfirmasi.</p>
+      </div>
+      <div class="callout callout--danger">
+        <div class="callout__title">✕ Bahaya</div>
+        <p>Tindakan ini tidak dapat dibatalkan.</p>
+      </div>
+      <div class="callout callout--purple">
+        <div class="callout__title">◆ Info Khusus</div>
+        <p>Catatan penting atau highlight sekunder.</p>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         6. CODE BLOCK
+         ==================================================== -->
+    <section id="code" class="section reveal">
+      <div class="sec-head">
+        <div class="sec-num">06</div>
+        <div>
+          <h2>Code Block</h2>
+          <span class="sec-head__sub">Dengan tombol salin &amp; syntax highlight</span>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__head">
+          <span class="code-block__dots"><i></i><i></i><i></i></span>
+          <span class="code-block__lang">javascript</span>
+          <span class="spacer"></span>
+          <button class="copy-btn">Salin</button>
+        </div>
+        <pre><code><span class="tok-c">// Theme switcher minimal</span>
+<span class="tok-k">const</span> root = document.documentElement;
+
+<span class="tok-k">function</span> <span class="tok-p">setTheme</span>(theme) {
+  root.<span class="tok-p">setAttribute</span>(<span class="tok-s">'data-theme'</span>, theme);
+  localStorage.<span class="tok-p">setItem</span>(<span class="tok-s">'theme'</span>, theme);
+}
+
+<span class="tok-c">// Init: localStorage → preferensi OS → dark</span>
+<span class="tok-k">const</span> saved = localStorage.<span class="tok-p">getItem</span>(<span class="tok-s">'theme'</span>)
+  || (matchMedia(<span class="tok-s">'(prefers-color-scheme: light)'</span>).matches
+      ? <span class="tok-s">'light'</span> : <span class="tok-s">'dark'</span>);
+<span class="tok-p">setTheme</span>(saved);</code></pre>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         7. TABEL
+         ==================================================== -->
+    <section id="tabel" class="section reveal">
+      <div class="sec-head">
+        <div class="sec-num">07</div>
+        <div>
+          <h2>Tabel</h2>
+          <span class="sec-head__sub">Data rapi, hover per baris</span>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Token</th>
+              <th>Fungsi</th>
+              <th>Nilai Dark</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="mono">--accent</td>
+              <td>Aksi utama, link, fokus</td>
+              <td class="mono" style="color:var(--accent)">#38bdf8</td>
+              <td><span class="badge badge--success">Aktif</span></td>
+            </tr>
+            <tr>
+              <td class="mono">--accent-2</td>
+              <td>Sukses, nilai benar</td>
+              <td class="mono" style="color:var(--accent-2)">#34d399</td>
+              <td><span class="badge badge--success">Aktif</span></td>
+            </tr>
+            <tr>
+              <td class="mono">--warn</td>
+              <td>Peringatan</td>
+              <td class="mono" style="color:var(--warn)">#fbbf24</td>
+              <td><span class="badge badge--warn">Review</span></td>
+            </tr>
+            <tr>
+              <td class="mono">--danger</td>
+              <td>Error, bahaya</td>
+              <td class="mono" style="color:var(--danger)">#fb7185</td>
+              <td><span class="badge badge--danger">Kritis</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         8. FORM INPUT
+         ==================================================== -->
+    <section id="form" class="section reveal">
+      <div class="sec-head">
+        <div class="sec-num">08</div>
+        <div>
+          <h2>Form Input</h2>
+          <span class="sec-head__sub">Input, textarea, select, checkbox, switch</span>
+        </div>
+      </div>
+
+      <div class="grid grid-2">
+        <div>
+          <div class="field">
+            <label class="field__label" for="demo-name">Nama Lengkap</label>
+            <input class="input" id="demo-name" type="text" placeholder="John Doe">
+            <p class="field__hint">Sesuai KTP.</p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="demo-email">Email</label>
+            <input class="input" id="demo-email" type="email" placeholder="john@example.com">
+          </div>
+          <div class="field">
+            <label class="field__label" for="demo-pass">Password</label>
+            <input class="input" id="demo-pass" type="password" placeholder="••••••••">
+            <p class="field__error">✕ Minimal 8 karakter</p>
+          </div>
+        </div>
+        <div>
+          <div class="field">
+            <label class="field__label" for="demo-select">Zona</label>
+            <select class="select" id="demo-select">
+              <option>Asia Tenggara</option>
+              <option>Asia Timur</option>
+              <option>Eropa</option>
+              <option>Amerika</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field__label" for="demo-textarea">Catatan</label>
+            <textarea class="textarea" id="demo-textarea" placeholder="Tulis sesuatu..."></textarea>
+          </div>
+          <div class="field">
+            <label class="field__label" for="demo-disabled">Input Disabled</label>
+            <input class="input" id="demo-disabled" type="text" value="Tidak dapat diubah" disabled>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo mt-6">
+        <p class="text-xs uppercase">Checkbox · Radio · Switch</p>
+        <div class="flex gap-6">
+          <label class="check">
+            <input type="checkbox" checked>
+            <span class="check__box"></span>
+            <span class="check__label">Ingat saya</span>
+          </label>
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="switch__track"></span>
+            <span>Notifikasi email</span>
+          </label>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="switch__track"></span>
+            <span>Mode gelap otomatis</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         9. ACCORDION
+         ==================================================== -->
+    <section id="accordion" class="section reveal">
+      <div class="sec-head">
+        <div class="sec-num">09</div>
+        <div>
+          <h2>Accordion</h2>
+          <span class="sec-head__sub">Single-open · smooth expand</span>
+        </div>
+      </div>
+
+      <div class="acc">
+        <div class="acc-item">
+          <button class="acc-head">
+            <span class="acc-icon">1</span>
+            <span class="acc-title">Apa itu Neon Slate?<small>Overview singkat</small></span>
+            <span class="acc-chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-body__inner"><p>Design system minimal dengan token-driven CSS variables, dual theme, dan komponen yang saling terintegrasi. Fokus pada data-dense UI tanpa kehilangan estetika.</p></div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head">
+            <span class="acc-icon">2</span>
+            <span class="acc-title">Bagaimana cara ganti tema?<small>Theme switching</small></span>
+            <span class="acc-chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-body__inner"><p>Cukup ubah atribut <code class="mono">data-theme</code> pada <code class="mono">&lt;html&gt;</code>. Semua token warna otomatis berganti karena didefinisikan ulang di selector <code class="mono">[data-theme="light"]</code>.</p></div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head">
+            <span class="acc-icon">3</span>
+            <span class="acc-title">Apakah bisa dikustomisasi?<small>Ekstensi &amp; override</small></span>
+            <span class="acc-chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-body__inner"><p>Ya. Override token di <code class="mono">:root</code> setelah load <code class="mono">tokens.css</code>. Atau tambahkan <code class="mono">[data-theme="brand-x"]</code> untuk theme kustom.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         10. TABS
+         ==================================================== -->
+    <section id="tabs" class="section reveal">
+      <div class="sec-head">
+        <div class="sec-num">10</div>
+        <div>
+          <h2>Tabs</h2>
+          <span class="sec-head__sub">Pill-style · state jelas</span>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <div class="tab-list" id="tabList">
+          <button class="tab-btn active" data-tab="html">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            HTML
+          </button>
+          <button class="tab-btn" data-tab="css">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+            CSS
+          </button>
+          <button class="tab-btn" data-tab="js">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"></path></svg>
+            JS
+          </button>
+        </div>
+
+        <div class="tab-panel active" data-panel="html">
+          <div class="code-block">
+            <div class="code-block__head">
+              <span class="code-block__dots"><i></i><i></i><i></i></span>
+              <span class="code-block__lang">html</span>
+              <span class="spacer"></span>
+              <button class="copy-btn">Salin</button>
+            </div>
+            <pre><code>&lt;button class="btn btn--primary"&gt;Simpan&lt;/button&gt;
+&lt;div class="callout callout--success"&gt;
+  &lt;div class="callout__title"&gt;✓ Sukses&lt;/div&gt;
+  &lt;p&gt;Data tersimpan.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="css">
+          <div class="code-block">
+            <div class="code-block__head">
+              <span class="code-block__dots"><i></i><i></i><i></i></span>
+              <span class="code-block__lang">css</span>
+              <span class="spacer"></span>
+              <button class="copy-btn">Salin</button>
+            </div>
+            <pre><code><span class="tok-k">:root</span> {
+  <span class="tok-p">--accent</span>: <span class="tok-n">#38bdf8</span>;
+  <span class="tok-p">--accent-2</span>: <span class="tok-n">#34d399</span>;
+}
+
+<span class="tok-k">[data-theme="light"]</span> {
+  <span class="tok-p">--accent</span>: <span class="tok-n">#0284c7</span>;
+}</code></pre>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="js">
+          <div class="code-block">
+            <div class="code-block__head">
+              <span class="code-block__dots"><i></i><i></i><i></i></span>
+              <span class="code-block__lang">javascript</span>
+              <span class="spacer"></span>
+              <button class="copy-btn">Salin</button>
+            </div>
+            <pre><code><span class="tok-k">const</span> theme = localStorage.<span class="tok-p">getItem</span>(<span class="tok-s">'theme'</span>) || <span class="tok-s">'dark'</span>;
+document.documentElement.<span class="tok-p">setAttribute</span>(<span class="tok-s">'data-theme'</span>, theme);</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         11. STEPPER
+         ==================================================== -->
+    <section id="stepper" class="section reveal">
+      <div class="sec-head">
+        <div class="sec-num">11</div>
+        <div>
+          <h2>Stepper</h2>
+          <span class="sec-head__sub">Navigasi langkah dengan chips &amp; progress</span>
+        </div>
+      </div>
+
+      <div class="stepper" id="stepper">
+        <div class="step-progress"><i id="stepBar"></i></div>
+        <div class="chips" id="chips">
+          <button class="chip active" data-step="0">1</button>
+          <button class="chip" data-step="1">2</button>
+          <button class="chip" data-step="2">3</button>
+          <button class="chip" data-step="3">4</button>
+        </div>
+        <div class="step-panel">
+          <div class="step active">
+            <div class="step-label">Langkah 01</div>
+            <h4>Persiapan</h4>
+            <p>Kumpulkan data dan verifikasi environment.</p>
+          </div>
+          <div class="step">
+            <div class="step-label">Langkah 02</div>
+            <h4>Konfigurasi</h4>
+            <p>Set up token dan struktur folder.</p>
+          </div>
+          <div class="step">
+            <div class="step-label">Langkah 03</div>
+            <h4>Implementasi</h4>
+            <p>Bangun komponen dan test interaksi.</p>
+          </div>
+          <div class="step">
+            <div class="step-label">Langkah 04</div>
+            <h4>Deploy</h4>
+            <p>Push ke production dan monitor.</p>
+          </div>
+        </div>
+        <div class="step-footer">
+          <button class="btn" id="prevBtn" disabled>← Sebelumnya</button>
+          <span class="step-counter" id="counter">01 / 04</span>
+          <button class="btn btn--primary" id="nextBtn">Berikutnya →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         12. FLOW & STAT
+         ==================================================== -->
+    <section id="flow" class="section reveal">
+      <div class="sec-head">
+        <div class="sec-num">12</div>
+        <div>
+          <h2>Flow Diagram &amp; Stat</h2>
+          <span class="sec-head__sub">Node chips dengan animasi sweep</span>
+        </div>
+      </div>
+
+      <div class="flow-wrap">
+        <div class="flow-caption">
+          <span class="badge badge--accent">Alur</span>
+        </div>
+        <div class="flow-track">
+          <span class="node node--purple">Client</span>
+          <span class="arrow"></span>
+          <span class="node node--accent">API Gateway</span>
+          <span class="arrow"></span>
+          <span class="node node--success">Auth</span>
+          <span class="arrow"></span>
+          <span class="node">Service</span>
+          <span class="arrow"></span>
+          <span class="node">Database</span>
+          <span class="arrow"></span>
+          <span class="node node--warn">Response</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         13. MODAL
+         ==================================================== -->
+    <section id="modal" class="section reveal">
+      <div class="sec-head">
+        <div class="sec-num">13</div>
+        <div>
+          <h2>Modal</h2>
+          <span class="sec-head__sub">Dialog dengan backdrop blur</span>
+        </div>
+      </div>
+
+      <div class="demo flex gap-3">
+        <button class="btn btn--primary" data-modal-open="modalDemo">Buka Modal</button>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         14. TOAST
+         ==================================================== -->
+    <section id="toast" class="section reveal">
+      <div class="sec-head">
+        <div class="sec-num">14</div>
+        <div>
+          <h2>Toast / Notifikasi</h2>
+          <span class="sec-head__sub">Auto-dismiss · stackable</span>
+        </div>
+      </div>
+
+      <div class="demo flex gap-3">
+        <button class="btn" data-toast="default">ℹ Info</button>
+        <button class="btn" data-toast="success">✓ Sukses</button>
+        <button class="btn" data-toast="warn">⚠ Peringatan</button>
+        <button class="btn" data-toast="danger">✕ Error</button>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         15. TOOLTIP
+         ==================================================== -->
+    <section id="tooltip" class="section reveal">
+      <div class="sec-head">
+        <div class="sec-num">15</div>
+        <div>
+          <h2>Tooltip</h2>
+          <span class="sec-head__sub">Hover atau focus</span>
+        </div>
+      </div>
+
+      <div class="demo" style="padding:40px 24px;">
+        <p style="margin:0;font-size:.94rem;color:var(--text-2);">
+          Ini contoh <span class="tip" tabindex="0">istilah teknis<span class="tip__bubble">Penjelasan singkat istilah ini</span></span> dengan tooltip.
+          Coba juga <span class="tip" tabindex="0">token warna<span class="tip__bubble">--accent · #38bdf8</span></span> di sini.
+        </p>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         16. TIPS KONSISTENSI
+         ==================================================== -->
+    <section id="tips" class="section reveal">
+      <div class="sec-head">
+        <div class="sec-num">16</div>
+        <div>
+          <h2>Tips Konsistensi</h2>
+          <span class="sec-head__sub">Aturan emas agar design system tetap koheren</span>
+        </div>
+      </div>
+
+      <div class="chain">
+        <div class="chain-item">
+          <div class="chain-num">1</div>
+          <div class="chain-body">
+            <b>Jangan hardcode warna.</b> Selalu pakai token — <code class="mono">var(--accent)</code>, bukan <code class="mono">#38bdf8</code>. Kalau butuh warna baru, tambahkan sebagai token baru.
+          </div>
+        </div>
+        <div class="chain-item">
+          <div class="chain-num">2</div>
+          <div class="chain-body">
+            <b>Pakai <code class="mono">color-mix()</code> untuk opacity.</b> Lebih fleksibel daripada <code class="mono">rgba()</code> karena otomatis menyesuaikan tema.
+            <div class="mini-code">border-color: color-mix(in srgb, var(--accent) 35%, var(--border));</div>
+          </div>
+        </div>
+        <div class="chain-item">
+          <div class="chain-num">3</div>
+          <div class="chain-body">
+            <b>Satu easing curve.</b> Pakai <code class="mono">--ease-soft</code> (<code class="mono">cubic-bezier(.4,0,.2,1)</code>) untuk micro-interaction, <code class="mono">--ease-out</code> (<code class="mono">cubic-bezier(.16,1,.3,1)</code>) untuk entrance.
+          </div>
+        </div>
+        <div class="chain-item">
+          <div class="chain-num">4</div>
+          <div class="chain-body">
+            <b>Glow radial di <code class="mono">body::before</code></b> adalah signature look. Jangan dihapus — kalau diganti, ganti juga <code class="mono">--bg-glow-1</code> dan <code class="mono">--bg-glow-2</code>.
+          </div>
+        </div>
+        <div class="chain-item">
+          <div class="chain-num">5</div>
+          <div class="chain-body">
+            <b>Border dulu, shadow kemudian.</b> Elevate dengan border warna accent, bukan shadow tebal. Shadow hanya untuk elemen melayang (modal, toast, tooltip).
+          </div>
+        </div>
+        <div class="chain-item">
+          <div class="chain-num">6</div>
+          <div class="chain-body">
+            <b>Font mono untuk angka.</b> IP, statistik, kode, ID — semua <code class="mono">var(--font-mono)</code>. Ini yang membuat UI terasa "teknis" dan rapi.
+          </div>
+        </div>
+        <div class="chain-item">
+          <div class="chain-num">7</div>
+          <div class="chain-body">
+            <b>Hormati <code class="mono">prefers-reduced-motion</code>.</b> Sudah dihandle di <code class="mono">base.css</code> — jangan di-override.
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout--purple" style="margin-top:24px;">
+        <div class="callout__title">◆ Intinya</div>
+        <p>Design system yang baik = <strong>konsistensi &gt; kreativitas per-komponen</strong>. Kalau ada kebutuhan baru, tambahkan sebagai token/varian, jangan bikin one-off style.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="page-footer">
+  <p>
+    Neon Slate CSS Template
+    <span class="dot-sep">•</span>
+    Design System Showcase
+    <span class="dot-sep">•</span>
+    <span id="themeStatus">dark</span> mode
+  </p>
+</footer>
+
+<!-- ===== BACK TO TOP ===== -->
+<button class="to-top" id="toTop" aria-label="Kembali ke atas">
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12" y1="19" x2="12" y2="5"></line>
+    <polyline points="5 12 12 5 19 12"></polyline>
+  </svg>
+</button>
+
+<!-- ===== MODAL ===== -->
+<div class="modal" id="modalDemo" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal__dialog">
+    <div class="modal__header">
+      <h3 class="modal__title" id="modalTitle">Konfirmasi Hapus</h3>
+      <button class="modal__close" data-modal-close aria-label="Tutup">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <p>Tindakan ini akan menghapus data secara permanen. Anda yakin ingin melanjutkan?</p>
+    </div>
+    <div class="modal__footer">
+      <button class="btn" data-modal-close>Batal</button>
+      <button class="btn btn--primary" data-modal-close data-toast="success">Ya, Hapus</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TOAST CONTAINER ===== -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ==========================================================
+     1. THEME SWITCHER
+     ========================================================== */
+  var root = document.documentElement;
+  var toggle = document.getElementById("themeToggle");
+  var label = document.getElementById("themeLabel");
+  var icon = document.getElementById("themeIcon");
+  var status = document.getElementById("themeStatus");
+
+  var SUN = '<circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>';
+  var MOON = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+
+  var TOKEN_VALUES = {
+    dark: {
+      accent: "#38bdf8", accent2: "#34d399", warn: "#fbbf24",
+      danger: "#fb7185", purple: "#a78bfa", muted: "#7d8fa8",
+      surface: "#0f1520", bg: "#080b12"
+    },
+    light: {
+      accent: "#0284c7", accent2: "#059669", warn: "#b45309",
+      danger: "#e11d48", purple: "#7c3aed", muted: "#64798f",
+      surface: "#ffffff", bg: "#f5f8fc"
+    }
+  };
+
+  function updateSwatches(theme) {
+    var v = TOKEN_VALUES[theme];
+    if (!v) return;
+    var map = {
+      "sw-accent": v.accent, "sw-accent-2": v.accent2, "sw-warn": v.warn,
+      "sw-danger": v.danger, "sw-purple": v.purple, "sw-muted": v.muted,
+      "sw-surface": v.surface, "sw-bg": v.bg
+    };
+    Object.keys(map).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = map[id];
+    });
+  }
+
+  function applyTheme(theme) {
+    root.setAttribute("data-theme", theme);
+    if (status) status.textContent = theme;
+    if (theme === "dark") {
+      label.textContent = "Terang";
+      icon.innerHTML = SUN;
+    } else {
+      label.textContent = "Gelap";
+      icon.innerHTML = MOON;
+    }
+    updateSwatches(theme);
+    document.querySelectorAll(".preview-toggle button").forEach(function (b) {
+      b.classList.toggle("active", b.getAttribute("data-preview") === theme);
+    });
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem("neon-slate-theme"); } catch (e) {}
+  if (!saved) {
+    saved = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches
+      ? "light" : "dark";
+  }
+  applyTheme(saved);
+
+  toggle.addEventListener("click", function () {
+    var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    applyTheme(next);
+    try { localStorage.setItem("neon-slate-theme", next); } catch (e) {}
+  });
+
+  document.querySelectorAll(".preview-toggle button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var t = btn.getAttribute("data-preview");
+      applyTheme(t);
+      try { localStorage.setItem("neon-slate-theme", t); } catch (e) {}
+    });
+  });
+
+  /* ==========================================================
+     2. PROGRESS + BACK TO TOP
+     ========================================================== */
+  var fill = document.getElementById("progress");
+  var toTop = document.getElementById("toTop");
+  var ticking = false;
+
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var pct = max > 0 ? (h.scrollTop || document.body.scrollTop) / max * 100 : 0;
+    fill.style.width = pct + "%";
+    if ((h.scrollTop || document.body.scrollTop) > 600) toTop.classList.add("show");
+    else toTop.classList.remove("show");
+    ticking = false;
+  }
+  window.addEventListener("scroll", function () {
+    if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
+  }, { passive: true });
+  onScroll();
+
+  toTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  /* ==========================================================
+     3. REVEAL ON SCROLL
+     ========================================================== */
+  var reveals = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("visible"); ro.unobserve(e.target); }
+      });
+    }, { threshold: 0.06, rootMargin: "0px 0px -60px 0px" });
+    reveals.forEach(function (el) { ro.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add("visible"); });
+  }
+
+  /* ==========================================================
+     4. SCROLL SPY (TOC) — bersih tanpa inline styling
+     ========================================================== */
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll("#toc a"));
+  var sections = tocLinks.map(function (a) {
+    return document.querySelector(a.getAttribute("href"));
+  }).filter(Boolean);
+
+  function setActive(id) {
+    tocLinks.forEach(function (a) {
+      a.classList.toggle("active", a.getAttribute("href") === "#" + id);
+    });
+  }
+
+  if ("IntersectionObserver" in window && sections.length) {
+    var so = new IntersectionObserver(function (entries) {
+      var vis = entries
+        .filter(function (e) { return e.isIntersecting; })
+        .sort(function (a, b) { return b.intersectionRatio - a.intersectionRatio; });
+      if (vis.length) setActive(vis[0].target.id);
+    }, { rootMargin: "-15% 0px -60% 0px", threshold: [0, 0.15, 0.4, 0.75] });
+    sections.forEach(function (s) { so.observe(s); });
+  }
+
+  /* ==========================================================
+     5. COPY BUTTONS
+     ========================================================== */
+  document.querySelectorAll(".code-block").forEach(function (block) {
+    var btn = block.querySelector(".copy-btn");
+    var code = block.querySelector("code");
+    if (!btn || !code) return;
+    btn.addEventListener("click", function () {
+      var text = code.innerText;
+      function done() {
+        btn.textContent = "✓ Tersalin";
+        btn.classList.add("copied");
+        setTimeout(function () {
+          btn.textContent = "Salin";
+          btn.classList.remove("copied");
+        }, 1600);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(function () { fallback(text, done); });
+      } else {
+        fallback(text, done);
+      }
+    });
+  });
+
+  function fallback(text, cb) {
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.setAttribute("readonly", "");
+    ta.style.position = "fixed"; ta.style.top = "-1000px";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); cb(); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  /* ==========================================================
+     6. STEPPER
+     ========================================================== */
+  var chips = Array.prototype.slice.call(document.querySelectorAll("#chips .chip"));
+  var steps = Array.prototype.slice.call(document.querySelectorAll("#stepper .step"));
+  var prevBtn = document.getElementById("prevBtn");
+  var nextBtn = document.getElementById("nextBtn");
+  var counter = document.getElementById("counter");
+  var stepBar = document.getElementById("stepBar");
+  var total = steps.length;
+  var current = 0;
+
+  function pad(n) { return n < 10 ? "0" + n : "" + n; }
+  function goTo(i) {
+    if (i < 0 || i >= total) return;
+    current = i;
+    steps.forEach(function (s, idx) { s.classList.toggle("active", idx === i); });
+    chips.forEach(function (c, idx) {
+      c.classList.toggle("active", idx === i);
+      c.classList.toggle("done", idx < i);
+    });
+    counter.textContent = pad(i + 1) + " / " + pad(total);
+    stepBar.style.width = ((i + 1) / total * 100) + "%";
+    prevBtn.disabled = i === 0;
+    nextBtn.disabled = i === total - 1;
+  }
+  chips.forEach(function (c) {
+    c.addEventListener("click", function () { goTo(parseInt(c.getAttribute("data-step"), 10)); });
+  });
+  prevBtn.addEventListener("click", function () { goTo(current - 1); });
+  nextBtn.addEventListener("click", function () { goTo(current + 1); });
+  goTo(0);
+
+  /* ==========================================================
+     7. ACCORDION
+     ========================================================== */
+  document.querySelectorAll(".acc-item").forEach(function (item) {
+    var head = item.querySelector(".acc-head");
+    var body = item.querySelector(".acc-body");
+    head.addEventListener("click", function () {
+      var isOpen = item.classList.contains("open");
+      document.querySelectorAll(".acc-item.open").forEach(function (other) {
+        if (other !== item) {
+          other.classList.remove("open");
+          other.querySelector(".acc-body").style.maxHeight = null;
+        }
+      });
+      if (isOpen) {
+        item.classList.remove("open");
+        body.style.maxHeight = null;
+      } else {
+        item.classList.add("open");
+        body.style.maxHeight = body.scrollHeight + "px";
+      }
+    });
+  });
+  window.addEventListener("resize", function () {
+    document.querySelectorAll(".acc-item.open .acc-body").forEach(function (b) {
+      b.style.maxHeight = b.scrollHeight + "px";
+    });
+  });
+
+  /* ==========================================================
+     8. TABS
+     ========================================================== */
+  document.querySelectorAll(".tab-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var key = btn.getAttribute("data-tab");
+      document.querySelectorAll(".tab-btn").forEach(function (b) {
+        b.classList.toggle("active", b === btn);
+      });
+      document.querySelectorAll(".tab-panel").forEach(function (p) {
+        p.classList.toggle("active", p.getAttribute("data-panel") === key);
+      });
+    });
+  });
+
+  /* ==========================================================
+     9. MODAL
+     ========================================================== */
+  document.querySelectorAll("[data-modal-open]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var id = btn.getAttribute("data-modal-open");
+      var m = document.getElementById(id);
+      if (m) m.classList.add("open");
+    });
+  });
+  document.querySelectorAll(".modal").forEach(function (m) {
+    m.addEventListener("click", function (e) {
+      if (e.target === m) m.classList.remove("open");
+    });
+    m.querySelectorAll("[data-modal-close]").forEach(function (b) {
+      b.addEventListener("click", function () { m.classList.remove("open"); });
+    });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      document.querySelectorAll(".modal.open").forEach(function (m) { m.classList.remove("open"); });
+    }
+  });
+
+  /* ==========================================================
+     10. TOAST
+     ========================================================== */
+  var toastBox = document.getElementById("toastContainer");
+  var TOAST_PRESETS = {
+    default: { icon: "i", cls: "",   title: "Info",       msg: "Ini notifikasi informasi." },
+    success: { icon: "✓", cls: "toast--success", title: "Berhasil", msg: "Perubahan telah disimpan." },
+    warn:    { icon: "!", cls: "toast--warn",    title: "Perhatian", msg: "Periksa kembali input Anda." },
+    danger:  { icon: "✕", cls: "toast--danger",  title: "Error",     msg: "Terjadi kesalahan sistem." }
+  };
+
+  function showToast(type) {
+    var p = TOAST_PRESETS[type] || TOAST_PRESETS.default;
+    var el = document.createElement("div");
+    el.className = "toast " + p.cls;
+    el.innerHTML =
+      '<span class="toast__icon">' + p.icon + '</span>' +
+      '<div class="toast__body">' +
+        '<div class="toast__title">' + p.title + '</div>' +
+        '<div class="toast__msg">' + p.msg + '</div>' +
+      '</div>';
+    toastBox.appendChild(el);
+    setTimeout(function () {
+      el.classList.add("leaving");
+      setTimeout(function () { el.remove(); }, 320);
+    }, 3200);
+  }
+
+  document.querySelectorAll("[data-toast]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      showToast(btn.getAttribute("data-toast"));
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
